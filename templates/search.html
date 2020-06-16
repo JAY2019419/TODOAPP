@@ -1,0 +1,43 @@
+{% extends "base.html"%}
+
+
+
+
+
+{% block title%
+
+<title>SEARCH RESULTS</title>
+
+{% endblock %}
+
+{%block head%}{% endblock %}
+
+
+{% block body%}
+
+
+
+    
+<table style="border: 1px solid black " align="center"  >
+        <tr>
+            <th>ID</th>
+            <th>Task</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        
+        {% for v in task %}
+            <tr style=  "background-color:#dddddd" >
+               
+                <td>{{ v.content}}</td>
+               
+              
+            </tr>
+        {% endfor %}
+    </table>
+
+
+
+{% endblock %}
+
+

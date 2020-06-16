@@ -1,0 +1,69 @@
+{% extends "base.html"%}
+
+
+
+
+{% block title%} 
+
+PROJECT  TASKS 
+
+{% endblock %}
+
+{% block head%}
+
+
+{%endblock%}
+
+
+
+{% block body%}
+
+<div class="content"  style="text-align: center">
+    <h1 style="text-align: center">Task Management</h1>
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center">There are no tasks. Create one below!</h4>
+    {% else %}<br><br>
+    <table style="border: 1px solid black " align="center"  >
+        <tr>
+            <th>ID</th>
+            <th>Task</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+            <tr style=  "background-color:#dddddd" >
+                <td>{{ task.id }}</td>
+                <td>{{ task.content }}</td>
+                <td>{{ task.date_created.strftime("%x")}}</td>
+               
+                <td>
+
+                    <button><a href="/delete/{{task.id}}">Delete</a></button>
+                    
+                    <button><a href="/update/{{task.id}}">Update</a></button>
+
+<!-- CAN DELETE BELOW LINE -->
+                    
+
+
+
+
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+
+ <br><br>   
+<div class="form">
+        <form action="/" method="POST">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="ADD TASK">
+        </form>
+    </div>
+
+
+{% endblock %}
+
+

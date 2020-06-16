@@ -1,0 +1,74 @@
+{% extends "base.html"%}
+
+<p> TODO LIST </p>
+
+
+{% block title%} 
+
+
+
+
+{% endblock %}
+
+
+
+{% block body%}
+
+
+<table>
+
+	<tr>
+
+		<th>TASKID </th>
+
+		<th>SET TASK  </th>
+
+
+		<th>DATE SET</th>
+		
+
+
+	</tr>
+
+
+	{% with messages = get_flashed_mesaages()%}
+
+	{% if messages % }
+
+	{%for msg in messages%}
+
+	<p>
+		{{msg}}
+	</p>
+
+
+      
+    {%endfor%}
+    {%endif%}
+
+
+
+
+
+
+
+
+
+    {%endwith%}
+
+
+
+
+
+<form action="/new "   method ="POST">
+	<p>TASK</p>
+	<input type="text" name="content"   value="{{content if content}}" />
+	<input type="submit" value="SET NEW TASK"/>
+</form>
+
+
+
+
+{% endblock %}
+
+
